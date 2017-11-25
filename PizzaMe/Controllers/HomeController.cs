@@ -1,4 +1,6 @@
-﻿using System;
+﻿//using PizzaMe.Data;
+using PizzaMe.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,10 +8,16 @@ using System.Web.Mvc;
 
 namespace PizzaMe.Controllers
 {
+    
+
     public class HomeController : Controller
     {
+
+        PizzaMeDbContext db = new PizzaMeDbContext();
+
         public ActionResult Index()
         {
+            ViewBag.hello = db.Companies.Where(x => x.CompanyName == "dominos");
             return View();
         }
 
