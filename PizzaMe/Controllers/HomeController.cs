@@ -17,7 +17,20 @@ namespace PizzaMe.Controllers
 
         public ActionResult Index()
         {
+
             ViewBag.hello = db.Companies.Where(x => x.CompanyName == "dominos");
+            return View();
+        }
+        
+        public ActionResult Order(int NoOfPizzas, DietaryRequirements DR, bool Delivery)
+        {
+            ViewBag.NoOfPizzas = NoOfPizzas;
+            ViewBag.DR = DR;
+            ViewBag.Delivery = Delivery;
+
+            var Coupon241 = db.Coupons.Where(x => x.NoOfPizzasTwoForOne == NoOfPizzas).ToList();
+
+
             return View();
         }
 
@@ -34,5 +47,10 @@ namespace PizzaMe.Controllers
 
             return View();
         }
+    }
+
+    public enum DietaryRequirements
+    {
+        None, GlutenFree, Hindu, Vegetarian, Vegan, SeafoodOnly, NoPork
     }
 }
