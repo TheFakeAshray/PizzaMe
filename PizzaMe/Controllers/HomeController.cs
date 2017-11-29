@@ -21,14 +21,14 @@ namespace PizzaMe.Controllers
             ViewBag.hello = db.Companies;
             return View();
         }
-        
-        public ActionResult Order(int NoOfPizzas, DietaryRequirements DR, bool Delivery)
+
+        public ActionResult Order(int? NoOfPizzas, DietaryRequirements? DR, bool? Delivery)
         {
             ViewBag.NoOfPizzas = NoOfPizzas;
-            ViewBag.DR = DR;
-            ViewBag.Delivery = Delivery;
+            //ViewBag.DR = DR;
+           // ViewBag.Delivery = Delivery;
 
-            var Coupon241 = db.Coupons.Where(x => x.NoOfPizzasTwoForOne == NoOfPizzas).ToList();
+            //var Coupon241 = db.Coupons.Where(x => x.NoOfPizzasTwoForOne == NoOfPizzas).ToList();
 
 
             return View();
