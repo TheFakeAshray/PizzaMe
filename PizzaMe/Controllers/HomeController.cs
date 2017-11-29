@@ -18,7 +18,7 @@ namespace PizzaMe.Controllers
         public ActionResult Index()
         {
 
-            ViewBag.hello = db.Companies.Where(x => x.CompanyName == "dominos");
+            ViewBag.hello = db.Companies;
             return View();
         }
         

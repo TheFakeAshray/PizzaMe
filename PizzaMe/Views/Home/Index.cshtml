@@ -1,8 +1,68 @@
 ﻿@{
-    Layout = "~/Views/Shared/_IndexLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@foreach (var i in ViewBag.hello)
-{
-    <h1> @i.CompanyDesc </h1>
-}
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+
+
+<body>
+    <h1>What do you want to order?</h1>
+    <br />
+    <form class="form-horizontal select-heading" action="/order" method="post">
+
+
+        <div class="form-group">
+            
+            <!--Number Of Pizzas-->
+            <label class="control-label col-sm-5">Number of Pizzas:</label>
+            <div class="col-sm-7">
+                <input type="number" class="form-control" name="NoOfPizzas" />
+            </div>
+        <br />
+
+            <!--Dietary Requirements-->
+            <label class="control-label col-sm-5">Dietary Requirements:</label>
+            <div class="DietaryRequirements">
+                <div class="checkbox col-sm-7">
+                    <label><input type="checkbox" value="">Gluten Free</label>
+                </div>
+                <div class="checkbox col-sm-7">
+                    <label><input type="checkbox" value="">Hindu</label>
+                </div>
+                <div class="checkbox col-sm-7">
+                    <label><input type="checkbox" value="">Vegetarian</label>
+                </div>
+            </div>
+        
+        </div>
+    </form>
+
+    @foreach (var i in ViewBag.hello)
+    {
+        <h1> @i.CompanyName </h1>
+        <h2> @i.CompanyDesc </h2>
+        <br />
+    }
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
